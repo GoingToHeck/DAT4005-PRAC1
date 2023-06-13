@@ -1,0 +1,26 @@
+// "Variable Assignment"
+int variableName corresponds 99
+
+// "Variable Reassignment (with an arithmetic expression)"
+variableName 10 - variableName
+
+/* "If statement leading into
+else if statement leading into
+else statement" */
+provided variableName <= 86 commence
+    resultant variableName
+conclude contrarily provided variableName == true commence
+    resultant "string output"
+conclude contrarily commence
+    resultant 99
+conclude
+
+// "While Loop"
+supposing 82 > 99 commence
+    resultant false
+conclude
+
+// "Do While Loop"
+commence
+    resultant 99
+conclude supposing 82 > 99
