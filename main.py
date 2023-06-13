@@ -25,7 +25,7 @@ TOKEN_OPEN_BLOCK_COMMENT = 'OPEN_BLOCK_COMMENT'
 TOKEN_CLOSE_BLOCK_COMMENT = 'CLOSE_BLOCK_COMMENT'
 TOKEN_TYPE_INT = 'TYPE_INT'
 TOKEN_TYPE_STRING = 'TYPE_STRING'
-TOKEN_TYPE_BOOL = 'TYPE_BOOL'
+TOKEN_TYPE_BOOL = 'TYPE_BOOLEAN'
 TOKEN_STRING = 'STRING'
 TOKEN_INT = 'INT'
 TOKEN_BOOL_TRUE = 'BOOL_TRUE'
@@ -127,7 +127,7 @@ def parser(tokens):
 
     while True:
         if token_index + 1 < len(tokens):
-            if tokens[token_index+1] and not stack:
+            if tokens[token_index + 1] and not stack:
                 stack.extend(['<statement>'])
         top = stack[-1]
         current_token = tokens[token_index][0]
@@ -271,9 +271,26 @@ def parser(tokens):
             if token_index >= len(tokens) and not stack:
                 print("Successfully Parsed Tokens")
                 return parsed_tokens
-            # elif token_index >= len(tokens) and stack:
-            #     print("Error: Failed to Parse Tokens")
-            #     return False
+
+
+# Take Tokens and pass through Semantic Analyzer
+def semantic_analyzer(parsed_tokens):
+    for i in range(len(parsed_tokens)):
+        match parsed_tokens[i]:
+            case 'TYPE_STRING':
+                print(parsed_tokens[i + 3])
+                if parsed_tokens[i + 3] != 'STRING':
+                    raise Exception("Semantic Error: STRING Type Not Assigned to STRING Value")
+            case 'TYPE_INT':
+                print(parsed_tokens[i + 3])
+                if parsed_tokens[i + 3] != 'INT':
+                    raise Exception("Semantic Error: INT Type Not Assigned to INT Value")
+            case 'TYPE_BOOLEAN':
+                print(parsed_tokens[i + 3])
+                if parsed_tokens[i + 3] != 'BOOL_TRUE' and parsed_tokens[i + 3] != 'BOOL_FALSE':
+                    raise Exception("Semantic Error: BOOLEAN Type Not Assigned to BOOLEAN Value")
+            case _:
+                pass
 
 
 # Main Function
@@ -282,6 +299,7 @@ def __main__():
     tokens = tokenizer(file_input_string)
     parsed_tokens = parser(tokens)
     print(parsed_tokens)
+    semantic_analyzer(parsed_tokens)
 
 
 __main__()

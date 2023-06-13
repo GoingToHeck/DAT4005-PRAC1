@@ -1,5 +1,14 @@
-// "Variable Assignment"
+// "Variable Assignment: Integer"
 int variableName corresponds 99
+
+// "Variable Assignment: String"
+string variableName corresponds "string output"
+
+// "Variable Assignment: Boolean True"
+bool variableName corresponds true
+
+// "Variable Assignment: Boolean False"
+bool variableName corresponds false
 
 // "Variable Reassignment (with an arithmetic expression)"
 variableName 10 - variableName
