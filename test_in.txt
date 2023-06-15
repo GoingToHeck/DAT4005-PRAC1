@@ -10,8 +10,17 @@ bool variableName corresponds true
 // "Variable Assignment: Boolean False"
 bool variableName corresponds false
 
-// "Variable Reassignment (with an arithmetic expression)"
-variableName 10 - variableName
+// "Variable Reassignment (with an arithmetic expression, addition)"
+variableName corresponds 100 + variableName
+
+// "Variable Reassignment (with an arithmetic expression, subtraction)"
+variableName corresponds variableName - 13
+
+// "Variable Reassignment (with an arithmetic expression, multiplication)"
+variableName corresponds variableName * 930
+
+// "Variable Reassignment (with an arithmetic expression, division)"
+variableName corresponds variableName / variableName
 
 /* "If statement leading into
 else if statement leading into
